@@ -1,0 +1,10 @@
+# This file SHOULD contain all the files that are not required to participate in 'docker build'
+
+# ignoring all possible hidden ones
+.gitignore
+.git
+.DS_Store
+.idea
+
+# ignoring readmes
+README

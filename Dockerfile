@@ -1,11 +1,13 @@
+# Start with official jenkins
 FROM jenkins
+
+# Install packages we need (n.b., jenkins includes openjdk-8-jdk)
 USER root
-# Install packages we need
 RUN apt-get update && apt-get install -y \
     openjdk-7-jdk \
     bzip2
 
-# Install maven versions we want in jenkins
+# Install maven versions we want in jenkins from official download
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
     FB11D4BB7B244678337AAD8BC7BF26D0BB617866 \
     744A72C49D4B7C81F736956580CE7E5DC9725F3B \

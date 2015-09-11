@@ -3,9 +3,15 @@ FROM jenkins
 
 # Install packages we need (n.b., jenkins includes openjdk-8-jdk)
 USER root
+
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
+    --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN echo "deb http://apt.dockerproject.org/repo debian-jessie main" > /etc/apt/sources.list.d/docker.list
+
 RUN apt-get update && apt-get install -y \
     openjdk-7-jdk \
-    bzip2
+    bzip2 \
+    docker-engine
 
 # Install maven versions we want in jenkins from official download
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
